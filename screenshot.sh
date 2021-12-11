@@ -45,7 +45,11 @@ function configure_screenshot() {
     # Create script to take screenshot over ssh
     cat > "$datadir/screenshots/screenshot.sh" << _EOF_
 #!/bin/bash
-$rootdir/supplementary/screenshot/raspi2png -p $datadir/screenshots/\$(date +%m%d%Y_%H%M%S).png
+dest="\$@"
+dest_fileext="\${dest##*.}"
+[[ ! -n "\$dest" ]] && dest="$datadir/screenshots/\$(date +%Y%m%d_%H%M%S).png"
+[[ "\${dest_fileext,,}" != "png" ]] && dest="\${dest}.png"
+$md_inst/raspi2png -p \$dest
 _EOF_
  
     chown $user:$user "$datadir/screenshots/screenshot.sh"
