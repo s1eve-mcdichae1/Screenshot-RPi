@@ -28,7 +28,7 @@ function build_screenshot() {
     cd "$md_build"
     make clean
     make
-    md_ret_require="$md_build"
+    md_ret_require="$md_build/raspi2png"
 }
  
 function install_screenshot() {
