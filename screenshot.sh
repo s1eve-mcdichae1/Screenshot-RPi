@@ -13,6 +13,7 @@ rp_module_id="screenshot"
 rp_module_desc="Universal Screenshot with Raspi2PNG"
 rp_module_licence="MIT https://raw.githubusercontent.com/AndrewFromMelbourne/raspi2png/master/LICENSE"
 rp_module_help="To take a screenshot use $datadir/screenshots/screenshot.sh over SSH.\n\nThis script is incompatible with the OpenGL driver."
+rp_module_repo="git https://github.com/AndrewFromMelbourne/raspi2png.git master b3c5599"
 rp_module_section="exp"
  
 function depends_screenshot() {
@@ -20,7 +21,7 @@ function depends_screenshot() {
 }
  
 function sources_screenshot() {
-    gitPullOrClone "$md_build" https://github.com/AndrewFromMelbourne/raspi2png.git
+    gitPullOrClone
 }
  
 function build_screenshot() {
