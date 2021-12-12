@@ -52,7 +52,6 @@ dest_fileext="\${dest##*.}"
 $md_inst/raspi2png -p \$dest
 _EOF_
 
-    chown $user:$user "$md_inst/$md_id.sh"
     chmod +x "$md_inst/$md_id.sh"
 }
 
@@ -62,4 +61,5 @@ function configure_screenshot() {
     [[ "$md_mode" == "install" ]] && script_screenshot
     [[ "$md_mode" == "remove" && -f "$md_inst/$md_id.sh" ]] && rm -f "$md_inst/$md_id.sh"
     moveConfigFile /usr/local/bin/screenshot "$md_inst/$md_id.sh"
+    [[ "$md_mode" == "install" && -h /usr/local/bin/screenshot ]] && chown -h root:root /usr/local/bin/screenshot
 }
