@@ -1,5 +1,5 @@
 # Screenshot-RPi
-Universal screenshot with RasPi2PNG: https://github.com/AndrewFromMelbourne/raspi2png
+Universal screenshot with Raspi2PNG: https://github.com/AndrewFromMelbourne/raspi2png
 
 Installation scriptmodule for RetroPie.
 
@@ -15,6 +15,8 @@ After that you can install the supplementary package through **RetroPie-Setup > 
 # Usage
     screenshot [destination]
 
-Use over SSH to capture emulated gameplay images.
+Use over SSH to capture screen images while gaming.
 
-If no destination given, shots are saved to `$HOME/RetroPie/screenshots/YYYYMMDD_HHMMSS.png`.
+If no destination given, shots are saved to `$HOME/.config/screenshots/YYYYMMDD_HHMMSS.png`.
+
+File share access at `configs/all/screenshots`.
