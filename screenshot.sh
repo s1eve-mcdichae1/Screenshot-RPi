@@ -41,9 +41,7 @@ function install_screenshot() {
     )
 }
 
-function configure_screenshot() {
-    mkUserDir "$datadir/screenshots"
-
+function script_screenshot() {
     # Create script to take screenshot over ssh
     cat > "$md_inst/$md_id.sh" << _EOF_
 #!/bin/bash
@@ -53,6 +51,12 @@ dest_fileext="\${dest##*.}"
 [[ "\${dest_fileext,,}" != "png" ]] && dest="\${dest}.png"
 $md_inst/raspi2png -p \$dest
 _EOF_
+}
+
+function configure_screenshot() {
+    mkUserDir "$datadir/screenshots"
+
+    [[ "$md_mode" == "install" ]] && script_screenshot
 
     chown $user:$user "$md_inst/$md_id.sh"
     chmod +x "$md_inst/$md_id.sh"
