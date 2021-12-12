@@ -46,8 +46,8 @@ function script_screenshot() {
     cat > "$md_inst/$md_id.sh" << _EOF_
 #!/bin/bash
 dest="\$1"
-dest_fileext="\${dest##*.}"
 [[ ! -n "\$dest" ]] && dest="$home/.config/screenshots/\$(date +%Y%m%d_%H%M%S).png"
+dest_fileext="\${dest##*.}"
 [[ "\${dest_fileext,,}" != "png" ]] && dest="\$dest.png"
 $md_inst/raspi2png -p \$dest
 _EOF_
