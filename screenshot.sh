@@ -58,8 +58,11 @@ _EOF_
 function configure_screenshot() {
     mkUserDir "$datadir/screenshots"
 
-    [[ "$md_mode" == "install" ]] && script_screenshot
-    [[ "$md_mode" == "install" ]] && ln -sf "$md_inst/$md_id.sh" /usr/local/bin/screenshot
-    [[ "$md_mode" == "remove" && -f "$md_inst/$md_id.sh" ]] && rm -f "$md_inst/$md_id.sh"
-    [[ "$md_mode" == "remove" && -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
+    if [[ "$md_mode" == "install" ]]; then
+        script_screenshot
+        ln -sf "$md_inst/$md_id.sh" /usr/local/bin/screenshot
+    elif [[ "$md_mode" == "remove" ]]; then
+        [[ -f "$md_inst/$md_id.sh" ]] && rm -f "$md_inst/$md_id.sh"
+        [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
+    fi
 }
