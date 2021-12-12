@@ -60,6 +60,6 @@ function configure_screenshot() {
     mkUserDir "$datadir/screenshots"
 
     [[ "$md_mode" == "install" ]] && script_screenshot
-
+    [[ "$md_mode" == "remove" && -f "$md_inst/$md_id.sh" ]] && rm -f "$md_inst/$md_id.sh"
     moveConfigFile /usr/local/bin/screenshot "$md_inst/$md_id.sh"
 }
