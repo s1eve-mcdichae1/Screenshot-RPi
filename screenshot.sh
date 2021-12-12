@@ -56,4 +56,5 @@ _EOF_
 
     chown $user:$user "$md_inst/$md_id.sh"
     chmod +x "$md_inst/$md_id.sh"
+    ln -s "$md_inst/$md_id.sh" /usr/local/bin/screenshot
 }
