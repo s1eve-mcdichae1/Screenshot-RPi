@@ -60,6 +60,6 @@ function configure_screenshot() {
 
     [[ "$md_mode" == "install" ]] && script_screenshot
     [[ "$md_mode" == "remove" && -f "$md_inst/$md_id.sh" ]] && rm -f "$md_inst/$md_id.sh"
-    moveConfigFile /usr/local/bin/screenshot "$md_inst/$md_id.sh"
-    [[ "$md_mode" == "install" && -h /usr/local/bin/screenshot ]] && chown -h root:root /usr/local/bin/screenshot
+    [[ "$md_mode" == "install" ]] && ln -sf "$md_inst/$md_id.sh" /usr/local/bin/screenshot
+    [[ "$md_mode" == "remove" && -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
 }
