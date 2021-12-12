@@ -45,7 +45,7 @@ function configure_screenshot() {
     mkUserDir "$datadir/screenshots"
 
     # Create script to take screenshot over ssh
-    cat > "$md_inst/${md_id}.sh" << _EOF_
+    cat > "$md_inst/$md_id.sh" << _EOF_
 #!/bin/bash
 dest="\$@"
 dest_fileext="\${dest##*.}"
@@ -54,6 +54,6 @@ dest_fileext="\${dest##*.}"
 $md_inst/raspi2png -p \$dest
 _EOF_
 
-    chown $user:$user "$md_inst/${md_id}.sh"
-    chmod +x "$md_inst/${md_id}.sh"
+    chown $user:$user "$md_inst/$md_id.sh"
+    chmod +x "$md_inst/$md_id.sh"
 }
