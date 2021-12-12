@@ -59,9 +59,8 @@ _EOF_
 function configure_screenshot() {
     mkUserDir "$datadir/screenshots"
 
-    if [[ "$md_mode" == "install" ]]; then
-        script_screenshot
-    elif [[ "$md_mode" == "remove" ]]; then
+    [[ "$md_mode" == "install" ]] && script_screenshot
+    if [[ "$md_mode" == "remove" ]]; then
         [[ -f "$md_inst/$md_id.sh" ]] && rm -f "$md_inst/$md_id.sh"
         [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
     fi
