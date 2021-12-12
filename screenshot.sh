@@ -53,6 +53,7 @@ $md_inst/raspi2png -p \$dest
 _EOF_
 
     chmod +x "$md_inst/$md_id.sh"
+    ln -sf "$md_inst/$md_id.sh" /usr/local/bin/screenshot
 }
 
 function configure_screenshot() {
@@ -60,7 +61,6 @@ function configure_screenshot() {
 
     if [[ "$md_mode" == "install" ]]; then
         script_screenshot
-        ln -sf "$md_inst/$md_id.sh" /usr/local/bin/screenshot
     elif [[ "$md_mode" == "remove" ]]; then
         [[ -f "$md_inst/$md_id.sh" ]] && rm -f "$md_inst/$md_id.sh"
         [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
