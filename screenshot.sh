@@ -14,7 +14,7 @@
 
 rp_module_id="screenshot"
 rp_module_desc="Universal Screenshot with Raspi2PNG"
-rp_module_help="To take a screenshot use <!- insert command -!> over SSH.\n\nThis script is incompatible with the OpenGL driver."
+rp_module_help="To take a screenshot use \"screenshot [destination file]\" over SSH. File saved to $datadir/screenshots if no destination given.\n\nThis script is incompatible with the OpenGL driver."
 rp_module_repo="git https://github.com/AndrewFromMelbourne/raspi2png.git master b3c5599"
 rp_module_licence="MIT https://raw.githubusercontent.com/AndrewFromMelbourne/raspi2png/master/LICENSE"
 rp_module_section="exp"
