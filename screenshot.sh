@@ -48,7 +48,7 @@ function script_screenshot() {
 dest="\$1"
 dest_fileext="\${dest##*.}"
 [[ ! -n "\$dest" ]] && dest="$datadir/screenshots/\$(date +%Y%m%d_%H%M%S).png"
-[[ "\${dest_fileext,,}" != "png" ]] && dest="\${dest}.png"
+[[ "\${dest_fileext,,}" != "png" ]] && dest="\$dest.png"
 $md_inst/raspi2png -p \$dest
 _EOF_
 }
