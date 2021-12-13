@@ -1,9 +1,12 @@
 ## Screenshot-RPi
-Universal screenshot with Raspi2PNG: https://github.com/AndrewFromMelbourne/raspi2png
+Universal screenshot with Raspi2PNG:
+https://github.com/AndrewFromMelbourne/raspi2png
 
-Installation scriptmodule for RetroPie.
+Installation scriptmodule for RetroPie:
+https://retropie.org.uk
 
-Adapted from ZeroJay's RetroPie-Extra: https://github.com/zerojay/RetroPie-Extra
+Adapted from ZeroJay's RetroPie-Extra:
+https://github.com/zerojay/RetroPie-Extra
 
 ## Installation
 Download the scriptmodule with command:
