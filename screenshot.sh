@@ -47,6 +47,7 @@ function script_screenshot() {
 #!/bin/bash
 dest="\$1"
 [[ ! -n "\$dest" ]] && dest="$home/.config/screenshots/\$(date +%Y%m%d_%H%M%S).png"
+[[ -d "\$dest" ]] && dest="\$dest/\$(date +%Y%m%d_%H%M%S).png"
 dest_fileext="\${dest##*.}"
 [[ "\${dest_fileext,,}" != "png" ]] && dest="\$dest.png"
 $md_inst/raspi2png -p \$dest
