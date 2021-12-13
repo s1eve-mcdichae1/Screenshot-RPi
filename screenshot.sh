@@ -50,7 +50,7 @@ dest="\$1"
 [[ -d "\$dest" ]] && dest="\$dest/\$(date +%Y%m%d_%H%M%S).png"
 dest_fileext="\${dest##*.}"
 [[ "\${dest_fileext,,}" != "png" ]] && dest="\$dest.png"
-$md_inst/raspi2png -p "\$dest"
+$md_inst/raspi2png -p "\$dest" && echo Saved "\$dest"
 _EOF_
 
     chmod +x "$md_inst/$md_id.sh"
