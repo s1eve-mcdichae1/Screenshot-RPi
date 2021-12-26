@@ -20,6 +20,6 @@ After that you can install the supplementary package through **RetroPie-Setup > 
 
 Use over SSH to capture screen images while gaming.
 
-If no destination given, shots are saved to `$HOME/.config/screenshots/YYYYMMDD_HHMMSS.png`.
+If no destination given, shots are saved to `$HOME/RetroPie/screenshots/YYYYMMDD_HHMMSS.png`.
 
-File share access at `configs/all/screenshots`.
+`screenshots` folder access over smb.

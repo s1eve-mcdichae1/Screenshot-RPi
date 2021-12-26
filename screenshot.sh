@@ -14,7 +14,7 @@
 
 rp_module_id="screenshot"
 rp_module_desc="Universal Screenshot with Raspi2PNG"
-rp_module_help="Usage: 'screenshot [destination]' over SSH. File saved to '$home/.config/screenshots' if no destination given. File share access at 'configs/all/screenshots'.\n\nThis script is incompatible with the OpenGL driver."
+rp_module_help="Usage: 'screenshot [destination]' over SSH. File saved to '$datadir/screenshots/(date)_(time).png' if no destination given.\n\nThis script is incompatible with the OpenGL driver."
 rp_module_repo="git https://github.com/AndrewFromMelbourne/raspi2png.git master b3c5599"
 rp_module_licence="MIT https://raw.githubusercontent.com/AndrewFromMelbourne/raspi2png/master/LICENSE"
 rp_module_section="exp"
@@ -46,7 +46,7 @@ function script_screenshot() {
     cat > "$md_inst/$md_id.sh" << _EOF_
 #!/bin/bash
 dest="\$1"
-[[ ! -n "\$dest" ]] && dest="$home/.config/screenshots/\$(date +%Y%m%d_%H%M%S).png"
+[[ ! -n "\$dest" ]] && dest="$datadir/screenshots/\$(date +%Y%m%d_%H%M%S).png"
 [[ -d "\$dest" ]] && dest="\$dest/\$(date +%Y%m%d_%H%M%S).png"
 dest_fileext="\${dest##*.}"
 [[ "\${dest_fileext,,}" != "png" ]] && dest="\$dest.png"
@@ -58,11 +58,15 @@ _EOF_
 }
 
 function configure_screenshot() {
-    moveConfigDir "$home/.config/screenshots" "$configdir/all/screenshots"
-
-    [[ "$md_mode" == "install" ]] && script_screenshot
+    if [[ "$md_mode" == "install" ]]; then
+        mkUserDir "$datadir/screenshots"
+        script_screenshot
+        add_share_samba "screenshots" "$datadir/screenshots"
+        restart_samba
+    fi
     if [[ "$md_mode" == "remove" ]]; then
-        [[ -f "$md_inst/$md_id.sh" ]] && rm -f "$md_inst/$md_id.sh"
         [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
+        remove_share_samba "screenshots"
+        restart_samba
     fi
 }
