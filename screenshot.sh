@@ -63,8 +63,7 @@ function configure_screenshot() {
         script_screenshot
         add_share_samba "screenshots" "$datadir/screenshots"
         restart_samba
-    fi
-    if [[ "$md_mode" == "remove" ]]; then
+    elif [[ "$md_mode" == "remove" ]]; then
         [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
         remove_share_samba "screenshots"
         restart_samba
