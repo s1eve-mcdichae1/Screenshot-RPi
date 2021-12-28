@@ -58,14 +58,14 @@ _EOF_
 }
 
 function configure_screenshot() {
-    if [[ "$md_mode" == "install" ]]; then
-        mkUserDir "$datadir/screenshots"
-        script_screenshot
-        add_share_samba "screenshots" "$datadir/screenshots"
-        restart_samba
-    elif [[ "$md_mode" == "remove" ]]; then
+    if [[ "$md_mode" == "remove" ]]; then
         [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
         remove_share_samba "screenshots"
         restart_samba
+        return
     fi
+    mkUserDir "$datadir/screenshots"
+    script_screenshot
+    add_share_samba "screenshots" "$datadir/screenshots"
+    restart_samba
 }
