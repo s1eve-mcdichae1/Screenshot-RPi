@@ -46,7 +46,7 @@ function script_screenshot() {
     cat > "$md_inst/$md_id.sh" << _EOF_
 #!/bin/bash
 dest="\$1"
-[[ ! -n "\$dest" ]] && dest="$datadir/screenshots/\$(date +%Y%m%d_%H%M%S).png"
+[[ -z "\$dest" ]] && dest="$datadir/screenshots/\$(date +%Y%m%d_%H%M%S).png"
 [[ -d "\$dest" ]] && dest="\$dest/\$(date +%Y%m%d_%H%M%S).png"
 dest_fileext="\${dest##*.}"
 [[ "\${dest_fileext,,}" != "png" ]] && dest="\$dest.png"
