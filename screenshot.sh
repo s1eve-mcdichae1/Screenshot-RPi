@@ -54,17 +54,19 @@ $md_inst/raspi2png -p "\$dest" && echo Saved "\$dest"
 _EOF_
 
     chmod +x "$md_inst/$md_id.sh"
-    ln -sf "$md_inst/$md_id.sh" /usr/local/bin/screenshot
+    ln -sf "$md_inst/$md_id.sh" /usr/local/bin/Screenshot
 }
 
 function configure_screenshot() {
     if [[ "$md_mode" == "remove" ]]; then
-        [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
+        [[ -h /usr/local/bin/Screenshot ]] && rm -f /usr/local/bin/Screenshot
         remove_share_samba "screenshots"
         restart_samba
         return
     fi
     mkUserDir "$datadir/screenshots"
+    # remove old link
+    [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
     script_screenshot
     add_share_samba "screenshots" "$datadir/screenshots"
     restart_samba
