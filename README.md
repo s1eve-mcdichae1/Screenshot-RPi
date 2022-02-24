@@ -20,7 +20,7 @@ After that you can install the supplementary package through **RetroPie-Setup > 
 
 Just type `S[tab]` (or if you also have Skyscraper, `Sc[tab]`) to complete command instead of `screens[tab]`. Module replaces old command, just update script and reinstall.
 
-Use over SSH to capture screen images while gaming.
+Use over SSH to capture screen images while gaming:
 
     Screenshot [destination]
 
