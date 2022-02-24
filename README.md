@@ -18,7 +18,7 @@ After that you can install the supplementary package through **RetroPie-Setup > 
 ## Usage
 **Now uses capital 'S' for quicker tab-completion.**
 
-Just type `S[tab]` (or if you also have Skyscraper, `Sc[tab]`) to complete command instead of `screens[tab]`. Module replaces old command, just update script and reinstall.
+Just type `S[tab]` (or if you also have Skyscraper, `Sc[tab]`) to complete command instead of `screens[tab]`. Module automatically replaces old command, just update script and reinstall.
 
 Use over SSH to capture screen images while gaming:
 
