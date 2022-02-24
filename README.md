@@ -16,9 +16,13 @@ Download the scriptmodule with command:
 After that you can install the supplementary package through **RetroPie-Setup > Manage packages > Manage experimental packages**
 
 ## Usage
-    screenshot [destination]
+**Now uses capital 'S' for quicker tab-completion.**
+
+Just type `S[tab]` (or if you also have Skyscraper, `Sc[tab]` to complete command instead of `screens[tab]`. Module replaces old command, to update just reinstall.
 
 Use over SSH to capture screen images while gaming.
+
+    Screenshot [destination]
 
 If no destination given, shots are saved to `$HOME/RetroPie/screenshots/YYYYMMDD_HHMMSS.png`.
 
