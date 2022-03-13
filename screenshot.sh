@@ -58,6 +58,7 @@ _EOF_
 }
 
 function configure_screenshot() {
+    [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot #remove old link
     if [[ "$md_mode" == "remove" ]]; then
         [[ -h /usr/local/bin/Screenshot ]] && rm -f /usr/local/bin/Screenshot
         remove_share_samba "screenshots"
@@ -65,8 +66,6 @@ function configure_screenshot() {
         return
     fi
     mkUserDir "$datadir/screenshots"
-    # remove old link
-    [[ -h /usr/local/bin/screenshot ]] && rm -f /usr/local/bin/screenshot
     script_screenshot
     add_share_samba "screenshots" "$datadir/screenshots"
     restart_samba
